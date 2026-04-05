@@ -937,11 +937,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .map-red-pin {
   position: absolute;
-  top: 40%; 
-  right: 25%; /* highlights Dubai */
-  width: 14px;
-  height: 14px;
+  width: 8px;
+  height: 8px;
 }
+/* Individual Emirates Positions */
+.pin-abudhabi { top: 60%; left: 35%; }
+.pin-dubai { top: 38%; left: 63%; }
+.pin-sharjah { top: 34%; left: 67%; }
+.pin-ajman { top: 32%; left: 69%; }
+.pin-uaq { top: 28%; left: 71%; }
+.pin-rak { top: 18%; left: 76%; }
+.pin-fujairah { top: 32%; left: 82%; }
+
 .pin-core {
   position: absolute;
   width: 100%;

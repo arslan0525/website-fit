@@ -260,13 +260,55 @@
         statNums.forEach(el => {
           const text = el.textContent.trim();
           if (text === '500+') animateCounter(el, 0, 500, 1800, '+');
-          else if (text === '24/7') {} // keep as-is
-          else if (text === 'All UAE') {} // keep as-is
         });
       }
     },
     { threshold: 0.5 }
   );
   if (heroSection) heroObserver.observe(heroSection);
+
+  // ===== LEAFLET UAE MAP INITIALIZATION =====
+  const mapContainer = document.getElementById('uae-map');
+  if (mapContainer && typeof L !== 'undefined') {
+    // Initialize map
+    const map = L.map('uae-map', {
+      center: [24.8, 54.8], // Center of UAE
+      zoom: 6,
+      zoomControl: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      touchZoom: false,
+      dragging: false
+    });
+
+    // Clean CARTO Voyager tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      maxZoom: 10,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Emirates coordinates
+    const emirates = [
+      { name: "Abu Dhabi", lat: 24.4539, lng: 54.3773 },
+      { name: "Dubai", lat: 25.2048, lng: 55.2708 },
+      { name: "Sharjah", lat: 25.3463, lng: 55.4209 },
+      { name: "Ajman", lat: 25.4052, lng: 55.5136 },
+      { name: "Umm Al Quwain", lat: 25.5647, lng: 55.5552 },
+      { name: "Ras Al Khaimah", lat: 25.7895, lng: 55.9432 },
+      { name: "Fujairah", lat: 25.1288, lng: 56.3265 }
+    ];
+
+    // Red dot icon for markers
+    const redIcon = L.divIcon({
+      className: 'custom-red-marker',
+      html: '<div style="width:12px; height:12px; background:#ef4444; border-radius:50%; box-shadow: 0 0 10px rgba(239,68,68,0.8); border: 2px solid white;"></div>',
+      iconSize: [12, 12],
+      iconAnchor: [6, 6]
+    });
+
+    emirates.forEach(loc => {
+      L.marker([loc.lat, loc.lng], { icon: redIcon }).addTo(map).bindTooltip(loc.name, { direction: 'top', offset: [0, -5] });
+    });
+  }
 
 })();

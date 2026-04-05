@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -341,13 +342,7 @@
         </div>
         <div class="why-card" id="why-coverage">
           <div class="why-icon-wrap map-highlight-wrap" title="All UAE Emirates Coverage">
-            <div class="map-red-pin pin-abudhabi" title="Abu Dhabi"><span class="pin-core"></span><span class="pin-pulse"></span></div>
-            <div class="map-red-pin pin-dubai" title="Dubai"><span class="pin-core"></span><span class="pin-pulse"></span></div>
-            <div class="map-red-pin pin-sharjah" title="Sharjah"><span class="pin-core"></span><span class="pin-pulse"></span></div>
-            <div class="map-red-pin pin-ajman" title="Ajman"><span class="pin-core"></span><span class="pin-pulse"></span></div>
-            <div class="map-red-pin pin-uaq" title="Umm Al Quwain"><span class="pin-core"></span><span class="pin-pulse"></span></div>
-            <div class="map-red-pin pin-rak" title="Ras Al Khaimah"><span class="pin-core"></span><span class="pin-pulse"></span></div>
-            <div class="map-red-pin pin-fujairah" title="Fujairah"><span class="pin-core"></span><span class="pin-pulse"></span></div>
+            <div id="uae-map"></div>
           </div>
           <div class="why-content">
             <h3 class="why-title">All UAE Coverage</h3>
@@ -649,6 +644,7 @@
     <span class="whatsapp-float-pulse"></span>
   </a>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

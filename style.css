@@ -1198,55 +1198,85 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 1.5rem;
 }
 .area-card {
-  background: var(--lighter);
-  border: 1px solid var(--border);
+  position: relative;
+  background-size: cover;
+  background-position: center;
   border-radius: var(--radius-xl);
-  padding: 2rem;
-  text-align: center;
+  overflow: hidden;
+  height: 280px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  text-align: left;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.area-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
+  z-index: 1;
   transition: var(--transition);
 }
 .area-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
-  background: var(--white);
-}
-.area-card--all {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   border-color: transparent;
-  color: var(--white);
 }
-.area-card--all .area-name, .area-card--all .area-desc { color: rgba(255,255,255,0.9); }
-.area-emoji { font-size: 2.5rem; }
+.area-card:hover::before {
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+}
+.area-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .area-name {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin: 0;
 }
 .area-desc {
   font-size: 0.85rem;
-  color: var(--mid);
-  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.4;
+  margin: 0 0 0.5rem 0;
 }
 .area-btn {
-  margin-top: 0.5rem;
-  padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  align-self: flex-start;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.3);
   color: var(--white);
   border-radius: var(--radius-full);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.area-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(26,86,219,0.4); }
-.area-btn--featured {
+.area-card:hover .area-btn {
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37,211,102,0.4);
+}
+.area-card--all .area-btn {
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  border-color: transparent;
 }
-.area-btn--featured:hover { box-shadow: 0 6px 16px rgba(245,158,11,0.4); }
+.area-card--all:hover .area-btn {
+  box-shadow: 0 6px 16px rgba(245,158,11,0.4);
+}
 
 /* ===== CONTACT ===== */
 .contact { background: var(--lighter); }

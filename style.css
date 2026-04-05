@@ -539,31 +539,103 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   50% { transform: translateX(-50%) translateY(10px); opacity: 0; }
 }
 
-/* ===== TRUST STRIP ===== */
-.trust-strip {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  padding: 1rem 0;
+/* Shape Dividers & Shapes */
+.hero-shape-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+  z-index: 10;
 }
-.trust-strip-inner {
+.hero-shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+.hero-shape-divider .shape-fill { fill: var(--lighter); }
+
+.slant-divider-top, .curve-divider-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 10;
+}
+.slant-divider-top svg, .curve-divider-top svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+.slant-divider-top .shape-fill, .curve-divider-top .shape-fill { fill: var(--lighter); }
+
+.blob-bg {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.blob-bg-1 {
+  width: 400px; height: 400px;
+  background: rgba(59, 130, 246, 0.3);
+  top: -100px; left: -150px;
+}
+.blob-bg-2 {
+  width: 300px; height: 300px;
+  background: rgba(37, 211, 102, 0.2);
+  bottom: 50px; right: -50px;
+}
+.relative-z { position: relative; z-index: 2; }
+
+/* ===== TRUST STRIP OVERLAP ===== */
+.trust-strip-overlap {
+  position: relative;
+  margin-top: -60px; /* pull up over the hero */
+  z-index: 20;
+  margin-bottom: 2rem;
+}
+.trust-strip-glass {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 0.5rem 2rem;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.05);
 }
 .trust-item {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dark-2);
   white-space: nowrap;
 }
-.trust-item span { font-size: 1rem; }
+.trust-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, var(--light), #e2e8f0);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.8), 0 2px 8px rgba(0,0,0,0.05);
+}
 
 /* ===== SERVICES SECTION ===== */
-.services { background: var(--lighter); }
+.services { background: var(--lighter); position: relative; overflow: hidden; }
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -676,8 +748,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ===== UAE WIDE SERVICE ===== */
 .uae-service {
+  position: relative;
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--dark) 100%);
   color: var(--white);
+  padding-top: 7rem;
 }
 .uae-service-inner {
   display: grid;
@@ -850,6 +924,65 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .why-icon-wrap { font-size: 3rem; display: block; z-index: 1;}
 .why-title { font-size: 1.25rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
 .why-desc { font-size: 0.95rem; color: var(--mid); line-height: 1.6; }
+
+/* UAE Coverage Map Pin */
+.map-highlight-wrap {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/United_Arab_Emirates_location_map.svg/500px-United_Arab_Emirates_location_map.svg.png') center/contain no-repeat;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.map-red-pin {
+  position: absolute;
+  top: 40%; 
+  right: 25%; /* highlights Dubai */
+  width: 14px;
+  height: 14px;
+}
+.pin-core {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ef4444; 
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 1);
+}
+.pin-pulse {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: rgba(239, 68, 68, 0.5);
+  border-radius: 50%;
+  z-index: 1;
+  animation: red-pulse 1.5s infinite ease-out;
+}
+@keyframes red-pulse {
+  0% { transform: scale(0.3); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Safe Badges */
+.safe-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.safe-badge {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
 
 @media (max-width: 900px) {
   .why-grid { grid-template-columns: repeat(2, 1fr); }

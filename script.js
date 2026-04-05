@@ -1,5 +1,5 @@
 /* =====================================================
-   DUBAI FIT MOVERS — JavaScript
+   DUBAI FAST MOVERS — JavaScript
    ===================================================== */
 
 (function () {

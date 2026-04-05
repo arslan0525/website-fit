@@ -929,7 +929,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-color: rgba(0, 102, 255, 0.2);
 }
 
-.why-icon-wrap { font-size: 3rem; display: block; z-index: 1;}
+.why-icon-wrap { 
+  font-size: 3rem; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  z-index: 1;
+  color: var(--primary);
+  width: 64px;
+  height: 64px;
+  background: var(--lighter);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+.why-card:hover .why-icon-wrap {
+  background: var(--primary);
+  color: var(--white);
+  transform: rotate(5deg) scale(1.1);
+}
 .why-title { font-size: 1.25rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
 .why-desc { font-size: 0.95rem; color: var(--mid); line-height: 1.6; }
 

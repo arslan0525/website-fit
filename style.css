@@ -343,7 +343,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('hero-clean.jpg') center center / cover no-repeat;
+  background: url('hero-3ton.jpg') center bottom / cover no-repeat;
   transform: scale(1.05);
   animation: heroZoom 20s ease-in-out infinite alternate;
 }

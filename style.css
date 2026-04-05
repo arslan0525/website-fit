@@ -908,9 +908,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .why-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
 .why-card:nth-child(4) { grid-column: span 1; grid-row: span 1; }
 
-.why-card:nth-child(5) { grid-column: span 2; grid-row: span 1; flex-direction: row; align-items: center; gap: 2rem; background: var(--lighter); padding: 3rem;}
+.why-card:nth-child(5) { 
+  grid-column: span 2; 
+  grid-row: span 1; 
+  flex-direction: row; 
+  align-items: center; 
+  gap: 2rem; 
+  background: var(--lighter); 
+  padding: 2.5rem;
+}
 .why-card:nth-child(5) .why-icon-wrap { font-size: 5rem; flex-shrink: 0; margin-bottom: 0;}
-.why-card:nth-child(5) .why-content { flex: 1; }
+.why-card:nth-child(5) .why-content { flex: unset; }
 .why-card:nth-child(6) { grid-column: span 1; grid-row: span 1; }
 
 .why-content { display: flex; flex-direction: column; z-index: 2; position: relative;}
@@ -928,10 +936,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* UAE Coverage Map Container */
 .map-highlight-wrap {
   position: relative;
-  width: 200px;
-  height: 180px;
-  margin-right: 2rem;
-  flex-shrink: 0;
+  width: 55%;
+  height: 280px;
+  margin-left: auto;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -1040,11 +1047,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .why-card:nth-child(1), .why-card:nth-child(5) { grid-column: span 2; }
   .why-card:nth-child(2) { grid-column: span 1; grid-row: span 1; }
   .why-card:nth-child(1) .why-desc { max-width: 100%; }
+  .why-card:nth-child(5) { flex-direction: column; text-align: center; }
+  .map-highlight-wrap { width: 100%; height: 260px; margin-left: 0; }
 }
 @media (max-width: 600px) {
   .why-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .why-card { grid-column: span 1 !important; grid-row: span 1 !important; padding: 2rem !important; flex-direction: column !important; text-align: left !important; gap: 1rem; }
   .why-icon-wrap { text-align: left !important; }
+  .map-highlight-wrap { width: 100%; height: 240px; margin-left: 0; }
 }
 
 /* ===== EMERGENCY SECTION ===== */

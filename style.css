@@ -132,24 +132,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   flex-shrink: 0;
 }
-.logo-icon { font-size: 1.75rem; filter: drop-shadow(0 0 8px rgba(59,130,246,0.5)); }
-.logo-text { display: flex; flex-direction: column; }
-.logo-main {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.logo-sub {
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.logo-img {
+  height: 48px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
 
 /* Nav */
@@ -279,14 +267,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 0;
 }
 .mobile-logo {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--white);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-logo-img {
+  height: 48px;
+  width: auto;
 }
 .mobile-nav-list { display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
 .mobile-nav-link {
@@ -1437,13 +1426,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 2.5rem;
 }
 .footer-logo {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--white);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   margin-bottom: 1rem;
+}
+.footer-logo-img {
+  height: 48px;
+  width: auto;
 }
 .footer-tagline {
   font-size: 0.9rem;

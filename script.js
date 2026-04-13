@@ -1,5 +1,5 @@
 /* =====================================================
-   DUBAI FAST MOVERS — JavaScript
+   TALIB MOVER — JavaScript
    ===================================================== */
 
 (function () {
@@ -123,7 +123,7 @@
       const waMessage = encodeURIComponent(
         `Hi, I need a moving service!\n\nName: ${name}\nPhone: ${phone}${message ? `\nDetails: ${message}` : ''}`
       );
-      window.open(`https://wa.me/971507920510?text=${waMessage}`, '_blank');
+      window.open(`https://wa.me/971588284105?text=${waMessage}`, '_blank');
       contactForm.reset();
       showSuccessToast();
     });
